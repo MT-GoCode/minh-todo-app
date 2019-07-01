@@ -25,9 +25,7 @@ class Login extends Component {
         }
         else {
             return <span></span>
-        }
-        // this.state.loginVal?  : <span></span>
-        
+        }        
     }
     onSubmit = e => {
         e.preventDefault();

@@ -14,8 +14,7 @@ import List from 'antd/es/list';
 import Button from 'antd/es/button'
 import {Input, Icon, Checkbox, Layout, Card, Radio } from 'antd'
 const axios = require("axios")
-// Create your Styles. Remember, since React-JSS uses the default preset,
-// most plugins are available without further configuration needed.
+
 const styles = {
   containerComp: {
     marginRight: 'auto',
@@ -24,8 +23,6 @@ const styles = {
   }
 }
 
-// Define the component using these styles and pass it the 'classes' prop.
-// Use this to assign scoped class names.
 const TodoCont = ({classes, children}) => (
   <div className={classes.containerComp}>
     {children}
@@ -39,11 +36,9 @@ class TodoItem extends Component {
         this.onChange = this.onChange.bind(this);
     }
     remove = () => {
-        // Remove this TodoItem
         this.props.removeTodo(this.props.todo.placer);
     };
     complete = () => {
-        // Remove this TodoItem
         this.props.completeTodo(this.props.todo.placer);
     };
     uncomplete = () => {
@@ -172,9 +167,6 @@ export default class TodoList extends Component {
               })} !`)
               this.getNewSet()
         })
-
-        // recall to get new set
-       
       };
     
     uncompleteTodo = placer => {
@@ -188,9 +180,6 @@ export default class TodoList extends Component {
               })} !`)
               this.getNewSet()
         })
-
-        // recall to get new set
-        
       };
 
     removeTodo = placer => {
@@ -237,36 +226,37 @@ export default class TodoList extends Component {
         });
     }
   render () {
-      let tags = this.state.tags
-      const space = '  '
-    return (<div><center><Card style = {{width :'60%', height: "100%"}}>
-            <h2>Welcome, {window.localStorage.getItem('user')}!</h2><br/>
+    let tags = this.state.tags
+    const space = '  '
+    return (
+    <div><center><Card style = {{width :'60%', height: "100%"}}>
+        <h2>Welcome, {window.localStorage.getItem('user')}!</h2><br/>
 
-            <form onSubmit={this.handleInput}>
-                <Input style={{width: "35%"}} onChange = {this.onChangeTodo} placeholder = " What toDo?" />
-                <Input style={{width: "25%"}}  onChange = {this.onChangeTag} placeholder = "Enter Tags"/> 
-                {space} <Button type = "primary" htmlType="submit">Add New Todo</Button>
-            </form>   <br/>    
+        <form onSubmit={this.handleInput}>
+            <Input style={{width: "35%"}} onChange = {this.onChangeTodo} placeholder = " What toDo?" />
+            <Input style={{width: "25%"}}  onChange = {this.onChangeTag} placeholder = "Enter Tags"/> 
+            {space} <Button type = "primary" htmlType="submit">Add New Todo</Button>
+        </form><br/>    
+        
         <span style = {{fontWeight: 'bold', float: 'left', fontSize: 16}}>Your Todo list</span>
         <span style = {{float: 'right'}}>{this.displayShowButton()}</span>
         <br/><br/>
         
         <List 
-          bordered
-          locale={{ emptyText: "No todo items" }}
-          dataSource={this.state.todos}
-          renderItem={item => (
+            bordered
+            locale={{ emptyText: "No todo items" }}
+            dataSource={this.state.todos}
+            renderItem={item => (
             <TodoItem
-              style ={{float: "left"}}
-              todo={item}
-              removeTodo={this.removeTodo}
-              completeTodo={this.completeTodo}
-              uncompleteTodo = {this.uncompleteTodo}
+                style ={{float: "left"}}
+                todo={item}
+                removeTodo={this.removeTodo}
+                completeTodo={this.completeTodo}
+                uncompleteTodo = {this.uncompleteTodo}
             />
-          )}
+            )}
         />
-        </Card>Copyright (C) Minh Trinh</center></div>
-)
+    </Card>Copyright (C) Minh Trinh</center></div>)
     }
 }
 

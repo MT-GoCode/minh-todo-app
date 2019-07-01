@@ -26,21 +26,14 @@ class CreateAccount extends Component {
     onChangeBirth = (date, dateString) => {
         this.setState({ birth: new Date(dateString) });
     };
-    // componentDidMount() {
-    //     axios
-    //     .post("http://localhost:5000/createAccount", {email: "h@gmail.com", password: "hillooooo"})
-    //     .then(res => console.log("request made"))
 
-    // }
     redirectToLogin = () => {
         if (this.state.loginVal) {
             return <Redirect to="/login" />
         }
         else {
             return <span></span>
-        }
-        // this.state.loginVal?  : <span></span>
-        
+        }        
     }
     onSubmit = e => {
         e.preventDefault();
