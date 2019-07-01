@@ -1,0 +1,11 @@
+- Redirects
+- Todo Screen, ADD - revise single todo structure, remember 2 dates
+    - Backend concat todo, new collection reference with username
+
+- Todo Screen, REMOVE
+    - Backend update & delete todo
+- Todo Screen COMPLETE - retrieve and add complete date, remove from todos to display list & remove index
+    - backend update date
+- Todo Screen DISPLAY COMPLETE - request for completedTodos
+    - backend cycles through, selects those with completed dates & sort
+    - Todo screen disaplay with strikethrough/grey
